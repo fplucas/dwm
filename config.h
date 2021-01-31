@@ -27,10 +27,9 @@ static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
-	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	/*{ "Gimp",     NULL,       NULL,       0,            1,           -1 }, */
-	/* { "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 }, */
+   */
+  /* class      instance    title       tags mask     isfloating   monitor */
+  { "Gimp",     NULL,       NULL,       0,            1,           -1 },
 };
 
 /* layout(s) */
@@ -67,6 +66,10 @@ static const char *downvol[] = { "pactl", "set-sink-volume", "0", "-5%",     NUL
 static const char *mutevol[] = { "pactl", "set-sink-mute",   "0", "toggle",  NULL };
 static const char *brupcmd[] = { "xbacklight", "-inc", "10", NULL };
 static const char *brdowncmd[] = { "xbacklight", "-dec", "10", NULL };
+static const char *browser[] = { "chromium", NULL };
+static const char *sbrowser[] = { "firefox", NULL };
+static const char *filemanager[] = { "thunar", NULL };
+static const char *sfilemanager[] = { "termite", "-e", "ranger", NULL };
 
 static Key keys[] = {
 	/* modifier                     key                        function        argument */
@@ -78,6 +81,10 @@ static Key keys[] = {
 	{ 0,                            XF86XK_AudioRaiseVolume,   spawn,          {.v = upvol   } },
   { 0,                            XF86XK_MonBrightnessUp,    spawn,          {.v = brupcmd} },
   { 0,                            XF86XK_MonBrightnessDown,  spawn,          {.v = brdowncmd} },
+  { MODKEY,                       XK_w,                      spawn,          {.v = browser} },
+  { MODKEY|ShiftMask,             XK_w,                      spawn,          {.v = sbrowser} },
+  { MODKEY,                       XK_f,                      spawn,          {.v = filemanager} },
+  { MODKEY|ShiftMask,             XK_f,                      spawn,          {.v = sfilemanager} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -89,9 +96,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,                       XK_space,  setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
