@@ -66,8 +66,8 @@ static const char *downvol[] = { "pactl", "set-sink-volume", "0", "-5%",     NUL
 static const char *mutevol[] = { "pactl", "set-sink-mute",   "0", "toggle",  NULL };
 static const char *brupcmd[] = { "xbacklight", "-inc", "10", NULL };
 static const char *brdowncmd[] = { "xbacklight", "-dec", "10", NULL };
-static const char *browser[] = { "chromium", NULL };
-static const char *sbrowser[] = { "firefox", NULL };
+static const char *browser[] = { "firefox", NULL };
+static const char *sbrowser[] = { "google-chrome-stable", NULL };
 static const char *filemanager[] = { "thunar", NULL };
 static const char *sfilemanager[] = { "st", "-e", "ranger", NULL };
 
