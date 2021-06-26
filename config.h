@@ -70,6 +70,8 @@ static const char *browser[] = { "firefox", NULL };
 static const char *sbrowser[] = { "google-chrome-stable", NULL };
 static const char *filemanager[] = { "thunar", NULL };
 static const char *sfilemanager[] = { "alacritty", "-e", "ranger", NULL };
+static const char *scrnsht[] = { "scrot", "/home/lucas/Pictures/screenshots/%F.png", NULL };
+static const char *sscrnsht[] = { "scrot", "-s", "/home/lucas/Pictures/screenshots/%F.png", NULL };
 
 static Key keys[] = {
 	/* modifier                     key                        function        argument */
@@ -79,12 +81,14 @@ static Key keys[] = {
 	{ Mod4Mask,                     XK_F1,                     spawn,          {.v = mutevol } },
 	{ Mod4Mask,                     XK_F2,                     spawn,          {.v = downvol } },
 	{ Mod4Mask,                     XK_F3,                     spawn,          {.v = upvol   } },
-  { Mod4Mask,                     XK_F5,                     spawn,          {.v = brdowncmd} },
-  { Mod4Mask,                     XK_F6,                     spawn,          {.v = brupcmd} },
-  { MODKEY,                       XK_w,                      spawn,          {.v = browser} },
-  { MODKEY|ShiftMask,             XK_w,                      spawn,          {.v = sbrowser} },
-  { MODKEY,                       XK_f,                      spawn,          {.v = filemanager} },
-  { MODKEY|ShiftMask,             XK_f,                      spawn,          {.v = sfilemanager} },
+	{ Mod4Mask,                     XK_F5,                     spawn,          {.v = brdowncmd} },
+	{ Mod4Mask,                     XK_F6,                     spawn,          {.v = brupcmd} },
+	{ MODKEY,                       XK_w,                      spawn,          {.v = browser} },
+	{ MODKEY|ShiftMask,             XK_w,                      spawn,          {.v = sbrowser} },
+	{ MODKEY,                       XK_f,                      spawn,          {.v = filemanager} },
+	{ MODKEY|ShiftMask,             XK_f,                      spawn,          {.v = sfilemanager} },
+	{ 0,                            XK_Print,                  spawn,          {.v = scrnsht} },
+	{ MODKEY,                       XK_Print,                  spawn,          {.v = sscrnsht} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
