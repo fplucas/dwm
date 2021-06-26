@@ -58,7 +58,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_d_red, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
 static const char *upvol[]   = { "pactl", "set-sink-volume", "0", "+5%",     NULL };
@@ -69,7 +69,7 @@ static const char *brdowncmd[] = { "xbacklight", "-dec", "10", NULL };
 static const char *browser[] = { "firefox", NULL };
 static const char *sbrowser[] = { "google-chrome-stable", NULL };
 static const char *filemanager[] = { "thunar", NULL };
-static const char *sfilemanager[] = { "st", "-e", "ranger", NULL };
+static const char *sfilemanager[] = { "alacritty", "-e", "ranger", NULL };
 
 static Key keys[] = {
 	/* modifier                     key                        function        argument */
